@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Toolmatrix – Free Online Tools Platform</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+
+:root{
+--primary:#2563eb;
+--bg:#f8fafc;
+--text:#0f172a;
+--card:#ffffff;
+}
+
+body.dark{
+--bg:#0f172a;
+--text:#f1f5f9;
+--card:#1e293b;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;}
+body{background:var(--bg);color:var(--text);transition:0.3s;}
+
+header{
+position:sticky;top:0;
+display:flex;justify-content:space-between;align-items:center;
+padding:18px 8%;
+background:rgba(255,255,255,0.7);
+backdrop-filter:blur(10px);
+box-shadow:0 2px 10px rgba(0,0,0,0.05);
+}
+
+body.dark header{background:rgba(15,23,42,0.8);}
+
+.logo{font-weight:700;font-size:22px;color:var(--primary);}
+
+nav a{
+margin-left:25px;
+text-decoration:none;
+color:var(--text);
+font-weight:500;
+}
+
+.toggle{
+cursor:pointer;
+padding:8px 12px;
+border-radius:8px;
+background:var(--primary);
+color:white;
+}
+
+.hero{
+text-align:center;
+padding:120px 20px;
+background:linear-gradient(135deg,#2563eb,#60a5fa);
+color:white;
+}
+
+.hero h1{font-size:44px;margin-bottom:20px;}
+.hero p{font-size:18px;margin-bottom:30px;}
+
+.search{
+max-width:600px;
+margin:40px auto;
+}
+
+.search input{
+width:100%;
+padding:16px;
+border-radius:14px;
+border:none;
+font-size:16px;
+}
+
+.section{
+padding:80px 8%;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:25px;
+margin-top:40px;
+}
+
+.card{
+background:var(--card);
+padding:30px;
+border-radius:18px;
+box-shadow:0 4px 25px rgba(0,0,0,0.06);
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+}
+
+.card h3{margin-bottom:10px;}
+
+.stats{
+display:flex;
+justify-content:space-around;
+padding:60px 8%;
+background:var(--card);
+margin-top:60px;
+border-radius:20px;
+}
+
+.stat{text-align:center;}
+.stat h2{font-size:32px;color:var(--primary);}
+
+.footer{
+margin-top:80px;
+padding:40px;
+text-align:center;
+background:#0f172a;
+color:white;
+}
+
+@media(max-width:768px){
+.hero h1{font-size:28px;}
+.stats{flex-direction:column;gap:30px;}
+}
+
+</style>
+</head>
+<body>
+
+<header>
+<div class="logo">Toolmatrix</div>
+<nav>
+<a href="#">Tools</a>
+<a href="#">Categories</a>
+<a href="#">Blog</a>
+<a href="#">Contact</a>
+<span class="toggle" onclick="toggleDark()">Dark</span>
+</nav>
+</header>
+
+<section class="hero">
+<h1>All Your Daily Tools in One Powerful Platform</h1>
+<p>Fast. Secure. 100% Free Online Tools.</p>
+</section>
+
+<div class="search">
+<input type="text" id="searchInput" placeholder="Search any tool..." onkeyup="searchTool()">
+</div>
+
+<section class="section">
+<h2>Popular Tools</h2>
+<div class="grid" id="toolGrid">
+<div class="card"> <h3>PDF Compressor</h3><p>Reduce PDF size quickly.</p></div>
+<div class="card"> <h3>Image to WebP</h3><p>Convert images to WebP format.</p></div>
+<div class="card"> <h3>QR Code Generator</h3><p>Create custom QR codes instantly.</p></div>
+<div class="card"> <h3>Password Generator</h3><p>Generate secure passwords.</p></div>
+</div>
+</section>
+
+<div class="stats">
+<div class="stat"><h2>50+</h2><p>Tools</p></div>
+<div class="stat"><h2>10K+</h2><p>Users</p></div>
+<div class="stat"><h2>100K+</h2><p>Files Processed</p></div>
+<div class="stat"><h2>99%</h2><p>Satisfaction</p></div>
+</div>
+
+<div class="footer">
+<p>© 2026 Toolmatrix. All rights reserved.</p>
+</div>
+
+<script>
+function toggleDark(){
+document.body.classList.toggle("dark");
+}
+
+function searchTool(){
+let input=document.getElementById("searchInput").value.toLowerCase();
+let cards=document.querySelectorAll("#toolGrid .card");
+cards.forEach(card=>{
+let text=card.innerText.toLowerCase();
+card.style.display=text.includes(input)?"block":"none";
+});
+}
+</script>
+
+</body>
+</html>
